@@ -6,6 +6,7 @@ ___________________________
 
 ## How to use
 
+```git clone https://github.com/arissupriy/render-docs```
 ```pip install -r requirements.txt```
 
 in folder docs you can create category and API topic with markdown
