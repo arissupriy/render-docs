@@ -33,7 +33,7 @@ def get_category(DIR):
                     "date_created": time.ctime(os.path.getctime(xpath)),
                     "date_modified": time.ctime(os.path.getmtime(xpath))
                 })
-        return data
+        return sorted(data, key=lambda k: k['name']) 
 
 def get_file_list(category_name):
     category = category_name.replace('-',' ')
@@ -50,14 +50,14 @@ def get_file_list(category_name):
                 "category":category,
                 "category_url":category_name,
                 "desc":desc,
-                "topic":[
+                "topic":sorted([
                     {
                         "name":f.split('.')[0],
                         "url":f.replace(' ','-'), 
                         "date_created":time.ctime(os.path.getctime(os.path.join(path, f))),
                         "date_modified": time.ctime(os.path.getmtime(os.path.join(path, f)))
                     } for f in files if f != 'desc.md'
-                ]
+                ], key=lambda k: k['name'])
             }
 
             return data
