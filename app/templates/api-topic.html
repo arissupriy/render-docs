@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+<div class="container text-center">
+    <h2 class="text-center">{{data['category']}}</h2>
+    <h4>{{data['desc']}}</h4>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            {% for topic in data['topic'] %}
+            <div class="post-preview">
+                <a href="{{url_for('topic_detail', category=data['category_url'], topic=topic['url'])}}">
+                    <h2 class="post-title">
+                        {{topic['name']}}
+                    </h2>
+                </a>
+                <small>Created : {{topic['date_created']}}</small>
+            </div>
+            <hr> {% endfor %}
+        </div>
+    </div>
+</div>{% endblock %}

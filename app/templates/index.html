@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+    <h2 class="text-center">Dokumentasi API</h2>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            {% for ctg in category %}
+            <div class="post-preview">
+                <a href="{{ctg['url']}}">
+                    <h2 class="post-title">
+                        {{ctg['name']}}
+                    </h2>
+                </a>
+                <h4>{{ctg['desc'][:120]|markdown}}</h4>
+                <small>Created : {{ctg['date_created']}}</small>
+            </div>
+            <hr> {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

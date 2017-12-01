@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+    <h2 class="text-center">{{data['topic']}}</h2>
+    <p class="text-center">Created : {{data['date_created']}}</p>
+    <p class="text-center">Last Modified : {{data['date_modified']}}</p>
+    <div>
+        {{data['description']|markdown|safe}}
+    </div>
+
+</div>
+{% endblock %}
